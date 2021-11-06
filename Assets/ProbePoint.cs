@@ -29,22 +29,6 @@ public class ProbePoint : MonoBehaviour
     {
         _collider2D.OverlapCollider(contactFilter2D.NoFilter(), _contacts);
         
-        
-       /* foreach (var contact in _contacts)
-        {
-            if (contact.CompareTag("HouseBlueprint"))
-            {
-                Debug.Log("I am alive");
-                _isOnBlueprint = true;
-
-            }
-        }/*
-        if (!_isOnBlueprint)
-        {
-            probePoints.Remove(this);
-            Destroy(gameObject);
-        }
-*/
         isOnBrick = false;
         foreach (var contact in _contacts)
         {
