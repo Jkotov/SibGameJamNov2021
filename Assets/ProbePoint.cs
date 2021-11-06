@@ -55,6 +55,15 @@ public class ProbePoint : MonoBehaviour
         
         foreach (var contact in _contacts)
         {
+            if (contact.CompareTag("Window"))
+            {
+                probePoints.Remove(this);
+                Destroy(gameObject);
+                yield break;
+            }
+        }
+        foreach (var contact in _contacts)
+        {
             if (contact.CompareTag("HouseBlueprint"))
             {
                 yield break;

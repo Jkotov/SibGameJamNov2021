@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 120
+  massWithTape: 5
 --- !u!60 &8272094984714304524
 PolygonCollider2D:
   m_ObjectHideFlags: 0
