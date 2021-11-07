@@ -39,10 +39,10 @@ public class ProbePoint : MonoBehaviour
             }
         }
 
-        if (isOnBrick)
+       /* if (isOnBrick)
             _renderer.color = Color.red;
         else
-            _renderer.color = Color.green;
+            _renderer.color = Color.green;*/
         
     }
     

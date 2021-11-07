@@ -1427,8 +1427,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185864656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 0.78124994, y: 0.7407407, z: 1}
+  m_LocalPosition: {x: 0, y: 0.2, z: 10}
+  m_LocalScale: {x: 0.82, y: 0.78, z: 1}
   m_Children:
   - {fileID: 2031421107}
   m_Father: {fileID: 0}
@@ -1449,6 +1449,7 @@ MonoBehaviour:
   probePointsPower: 5
   needToFillPart: 0
   probePointPrefab: {fileID: 5358999790903519770, guid: e85e58b242ae5dfa8bb0ccf9d5086c28, type: 3}
+  presentDotsNeed: 90
   probePoints: []
 --- !u!1001 &191880199
 PrefabInstance:

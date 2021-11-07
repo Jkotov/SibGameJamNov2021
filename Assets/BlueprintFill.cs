@@ -2,16 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BlueprintFill : MonoBehaviour
 {
     [Tooltip("Probe points number is 4^n from this")][SerializeField] private int probePointsPower;
     [Tooltip("0 < x < 1")][SerializeField] private float needToFillPart;
     [SerializeField] private GameObject probePointPrefab;
+    [SerializeField] private float presentDotsNeed;
     public List<ProbePoint> probePoints;
     private PolygonCollider2D _collider2D;
 
 
+    private void CheckWin()
+    {
+        int onBricksDots = 0;
+
+        foreach (var probe in probePoints)
+        {
+            if (probe.isOnBrick)
+                onBricksDots++;
+        }
+
+        if ((float)onBricksDots / (float)probePoints.Count > presentDotsNeed / 100f)
+            SceneManager.LoadScene("Final");
+    }
+    
     private void Awake()
     {
         _collider2D = GetComponent<PolygonCollider2D>();
@@ -27,7 +43,7 @@ public class BlueprintFill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckWin();
     }
 
     void GenerateProbePoints()
