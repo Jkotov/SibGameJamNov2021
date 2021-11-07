@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7323008666011777734}
   - component: {fileID: 7323008666011777737}
   - component: {fileID: 7323008666011777736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SqBrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}

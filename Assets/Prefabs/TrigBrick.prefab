@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8272094984714304527}
   - component: {fileID: 8272094984714304524}
   - component: {fileID: 8272094984714304525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TrigBrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}

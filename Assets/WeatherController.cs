@@ -6,6 +6,8 @@ using UnityEngine;
 public class WeatherController : MonoBehaviour
 {
     [SerializeField] private float firstWindTimeout;
+    [SerializeField] private float firstEarthTimeout;
+    [SerializeField] private float timeBetweenEarth;
     [SerializeField] private float timeBetweenWindLighting;
     private Controller _fan;
     private Controller _lighting;
@@ -14,7 +16,9 @@ public class WeatherController : MonoBehaviour
     private void Awake()
     {
         _fan = GameObject.Find("Fans").GetComponent<Controller>();
+        _earth = GameObject.Find("EarthController").GetComponent<Controller>();
         StartCoroutine(StartFirstWind());
+        StartCoroutine(StartFirstEarth());
     }
 
     private IEnumerator StartFirstWind()
@@ -22,6 +26,22 @@ public class WeatherController : MonoBehaviour
         yield return firstWindTimeout;
         StartCoroutine(WindAndLight());
     }
+    private IEnumerator StartFirstEarth()
+    {
+        yield return firstEarthTimeout;
+        StartCoroutine(Earth());
+    }
+    
+    private IEnumerator Earth()
+    {
+        _earth.ActiveCrisis();
+        while (true)
+        {
+            yield return new WaitForSeconds(timeBetweenEarth + _earth.Timeout);
+            _earth.ActiveCrisis();
+        }
+    }
+    
     private IEnumerator WindAndLight()
     {
         _fan.ActiveCrisis();
