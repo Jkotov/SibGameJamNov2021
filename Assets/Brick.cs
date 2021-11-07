@@ -14,6 +14,7 @@ public class Brick : MonoBehaviour
     private Vector3 _defaultPos;
     private SpriteRenderer _renderer;
     private List<Collider2D> _contacts;
+    private AudioSource _audio;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class Brick : MonoBehaviour
         _defaultPos = transform.position;
         _renderer = GetComponent<SpriteRenderer>();
         _contacts = new List<Collider2D>();
+        _audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -72,6 +74,7 @@ public class Brick : MonoBehaviour
     {
         _followingMouse = false;
         _collider2D.isTrigger = false;
+        _audio.Play();
         _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
     }
 

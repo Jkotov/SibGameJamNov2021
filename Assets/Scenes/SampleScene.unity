@@ -645,6 +645,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3025875407220351435, guid: e6211fe6db6600f13a7429653814648c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 37c1709b49934456dbf9207d4f02d69d, type: 3}
     - target: {fileID: 9195777579920340217, guid: e6211fe6db6600f13a7429653814648c, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -5194,8 +5198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1bb914b1b172a40b6e13797403a6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeout: 2
-  startTimeout: 5
+  timeout: 5
+  startTimeout: 2
 --- !u!4 &1438219589
 Transform:
   m_ObjectHideFlags: 0
