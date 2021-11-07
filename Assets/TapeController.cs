@@ -41,7 +41,8 @@ public class TapeController : MonoBehaviour
             pos.z = -2;
             if (!_activeSpread && _disabled)
             {
-                Debug.Log("tape enabled");
+                Debug.Log("tape enabled");;
+                _collider2D.enabled = false;
                 transform.position = pos;
                 _activeSpread = true;
                 _renderer.enabled = true;
@@ -49,7 +50,6 @@ public class TapeController : MonoBehaviour
 
             if (_activeSpread)
             {
-                
                 float scale = (pos - transform.position).magnitude;
                 scale = scale > maxXScale ? maxXScale : scale;
                 transform.localScale = _defaultScale + Vector3.right * scale;
