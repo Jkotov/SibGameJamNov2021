@@ -8,9 +8,11 @@ public class FanController : Controller
 {
     private ParticleSystem[] _fans;
     private SpriteRenderer[] _warnings;
+    private AudioSource _audio;
     private int _index;
     private void Awake()
     {
+        _audio = GetComponent<AudioSource>();
         _fans = GetComponentsInChildren<ParticleSystem>();
         _warnings = new SpriteRenderer[_fans.Length];
         for (int i = 0; i < _fans.Length; i++)
@@ -32,7 +34,9 @@ public class FanController : Controller
     {
         Debug.Log("here");
         _fans[_index].Play();
+        _audio.Play();
         yield return new WaitForSeconds(timeout);
         _fans[_index].Stop();
+        _audio.Stop();
     }
 }
