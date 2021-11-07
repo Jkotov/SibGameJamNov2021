@@ -72,3 +72,5 @@ crashlytics-build.properties
 
 # intellij configs
 .idea
+
+preBuild.zip
