@@ -6,7 +6,6 @@ using UnityEngine;
 public class Brick : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed;
-    [SerializeField] private float massWithTape;
     private Camera _camera;
     private bool _followingMouse;
     private Vector3 _prevMousePos;
@@ -14,7 +13,6 @@ public class Brick : MonoBehaviour
     private Collider2D _collider2D;
     private Vector3 _defaultPos;
     private SpriteRenderer _renderer;
-    private float _defaultMass;
     private List<Collider2D> _contacts;
 
     private void Awake()
@@ -23,7 +21,6 @@ public class Brick : MonoBehaviour
         tag = "Brick";
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider2D = GetComponent<Collider2D>();
-        _defaultMass = _rigidbody2D.mass;
         _defaultPos = transform.position;
         _renderer = GetComponent<SpriteRenderer>();
         _contacts = new List<Collider2D>();
@@ -32,12 +29,13 @@ public class Brick : MonoBehaviour
     void Update()
     {
         _collider2D.GetContacts(_contacts);
-        _rigidbody2D.mass = _defaultMass;
+        if (!_followingMouse)
+            _rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         foreach (var contact in _contacts)
         {
             if (contact.CompareTag("Tape"))
             {
-                _rigidbody2D.mass = massWithTape;
+                _rigidbody2D.bodyType = RigidbodyType2D.Static;
                 break;
             }
         }
